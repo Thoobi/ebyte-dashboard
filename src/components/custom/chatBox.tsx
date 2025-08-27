@@ -39,12 +39,12 @@ export default function ChatBox() {
   };
 
   return (
-    <section className="relative p-5 w-full flex flex-col border gap-5 min-h-[500px]">
+    <section className="relative p-5 w-full flex flex-col gap-5 min-h-[500px]">
       <div className="max-h-[370px] overflow-scroll">
         {chatData.length > 0 ? (
           chatData.map((chat: Chat, id) => (
             <div key={id} className="my-3 flex items-end justify-end">
-              <span className="bg-blue-100 text-xs py-2.5 px-2 rounded-tr-4xl rounded-sm break-words max-w-[250px] text-right">
+              <span className="bg-blue-100 text-xs py-2.5 px-2 rounded-tr-2xl rounded-4xl break-words max-w-[250px] text-right">
                 {chat.message}
               </span>
             </div>
@@ -55,7 +55,6 @@ export default function ChatBox() {
           </span>
         )}
       </div>
-      ß
       <div className=" absolute bottom-0 left-0 w-full">
         <div className="flex flex-row items-center justify-between py-2 px-3 mb-3 bg-gray-200 w-[90%] mx-auto rounded-lg">
           <IoIosAttach className="text-xl rotate-25" />
