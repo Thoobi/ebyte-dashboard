@@ -7,7 +7,7 @@ export const getAllChat = async () => {
 export const postChat = async (message: string) => {
   const response = await apiInstance.post("/chats", {
     message: message,
-    timeStamp: Date.now(),
+    timestamp: Date.now(),
     id: Math.random().toString(36).substring(7),
   });
   return response.data;

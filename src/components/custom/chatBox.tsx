@@ -33,16 +33,18 @@ export default function ChatBox() {
   }, [fetchAllChats]);
 
   const handleSendChat = async (message: string) => {
+    if (message.trim().length === 0) return;
     await postChatMessage(message);
     setChatMessage("");
   };
+
   return (
-    <section className="relative p-5 w-full">
-      <div className="h-[450px] overflow-scroll">
+    <section className="relative p-5 w-full flex flex-col border gap-5 min-h-[500px]">
+      <div className="max-h-[370px] overflow-scroll">
         {chatData.length > 0 ? (
           chatData.map((chat: Chat, id) => (
             <div key={id} className="my-3 flex items-end justify-end">
-              <span className="bg-gray-200 text-xs p-2 rounded-br-3xl rounded-full">
+              <span className="bg-blue-100 text-xs py-2.5 px-2 rounded-tr-4xl rounded-sm break-words max-w-[250px] text-right">
                 {chat.message}
               </span>
             </div>
@@ -53,28 +55,31 @@ export default function ChatBox() {
           </span>
         )}
       </div>
+      ß
       <div className=" absolute bottom-0 left-0 w-full">
-        <div className="flex flex-row items-center justify-between py-3 px-3 mb-3 bg-gray-200 w-[90%] mx-auto rounded-lg">
+        <div className="flex flex-row items-center justify-between py-2 px-3 mb-3 bg-gray-200 w-[90%] mx-auto rounded-lg">
           <IoIosAttach className="text-xl rotate-25" />
-          <input
-            type="text"
+          <textarea
             placeholder="write a message"
             value={chatMessage || ""}
             onChange={(e) => {
               setChatMessage(e.target.value);
             }}
-            className="outline-none text-sm w-full px-3"
+            onKeyDown={(e) => {
+              if (e.key === "Enter") handleSendChat(chatMessage);
+            }}
+            className="outline-none text-sm w-full px-2 resize-none"
           />
           <span className="flex flex-row gap-2 items-center">
             {chatMessage.length > 0 ? (
               <button
                 className="bg-blue-400 border-1 cursor-pointer border-blue-500 p-1 rounded-full flex justify-start items-start group"
-                onClick={handleSendChat.bind(null, chatMessage)}
+                onClick={() => handleSendChat(chatMessage)}
               >
                 <CiLocationArrow1 className="text-lg text-white group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-all duration-500 ease-out text-start" />
               </button>
             ) : (
-              <div className="flex flex-row gap-3 items-center p-1">
+              <div className="flex flex-row gap-2 items-center p-1">
                 <GoSmiley className="text-lg" />
                 <IoMicOutline className="text-xl" />
               </div>

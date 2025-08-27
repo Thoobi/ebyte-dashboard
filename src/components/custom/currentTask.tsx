@@ -3,6 +3,8 @@ import { useUserStore, UserStore } from "@/store/userStore";
 import { BsThreeDots } from "react-icons/bs";
 import { useEffect } from "react";
 import { MdDraw, MdLock, MdDescription, MdBuild } from "react-icons/md";
+import { IoTime } from "react-icons/io5";
+import { GoDotFill } from "react-icons/go";
 
 type IconName = "MdDraw" | "MdLock" | "MdDescription" | "MdBuild";
 
@@ -26,6 +28,18 @@ export default function CurrentTask() {
     "bg-green-50",
     "bg-yellow-50",
   ];
+
+  const iconTextColor = [
+    "text-blue-300",
+    "text-red-300",
+    "text-green-300",
+    "text-yellow-300",
+  ];
+
+  const getIconTextColor = (iconName: string) => {
+    const index = Object.keys(Iconmap).indexOf(iconName);
+    return iconTextColor[index] || "text-gray-500";
+  };
 
   const getIconBgColor = (iconName: string) => {
     const index = Object.keys(Iconmap).indexOf(iconName);
@@ -66,11 +80,15 @@ export default function CurrentTask() {
               <span className="w-full">
                 <h3 className="text-sm font-medium ">{task.title}</h3>
               </span>
-              <span className="flex items-center justify-start w-[200px]">
+              <span className="flex items-center justify-start gap-1 w-[200px]">
+                <GoDotFill
+                  className={`text-base ${getIconTextColor(task.icon)}`}
+                />
                 <p className="text-sm text-gray-500">{task.status}</p>
               </span>
-              <span className="w-1/3 flex justify-center items-center">
-                <p className="text-sm text-gray-500 ">{task.hours}</p>
+              <span className="w-1/3 flex gap-1 justify-center items-center">
+                <IoTime className={`text-gray-400 text-lg`} />
+                <p className="text-sm text-gray-500 ">{task.hours}h</p>
               </span>
               <span className="w-1/8 flex items-center justify-center">
                 <BsThreeDots />
@@ -78,7 +96,7 @@ export default function CurrentTask() {
             </div>
           ))
         ) : (
-          <p className="text-gray-500">No current tasks</p>
+          <p className="text-gray-500 text-center">No current tasks</p>
         )}
       </div>
     </section>

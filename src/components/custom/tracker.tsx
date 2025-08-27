@@ -58,7 +58,7 @@ export default function Tracker() {
             key={index}
             className="flex flex-rol items-center gap-4 nth-[2]:border-x nth-[2]:px-8"
           >
-            <span className="bg-gray-100 p-2 rounded-full">
+            <span className="bg-gray-50 p-2 rounded-full">
               <data.icon className="text-2xl text-gray-500" />
             </span>
             <div className="flex flex-col gap-2 items-start justify-center">

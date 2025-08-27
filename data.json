@@ -43,43 +43,46 @@
           "id": 9,
           "title": "Create API documentation"
         }
-      ]
+      ],
+      "id": "2fca"
     },
     {
       "label": "Tracked",
       "count": -6,
-      "value": "31h"
+      "value": "31h",
+      "id": "a9df"
     },
     {
       "label": "Efficiency",
       "count": 12,
-      "value": "93%"
+      "value": "93%",
+      "id": "e7e1"
     }
   ],
   "tasks": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Design the landing page",
       "status": "in-progress",
       "hours": 4,
       "icon": "MdDraw"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Implement user authentication",
       "status": "on-hold",
       "hours": 5,
       "icon": "MdLock"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Create API documentation",
       "status": "in-progress",
       "hours": 8,
       "icon": "MdDescription"
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Set up CI/CD pipeline",
       "status": "in-progress",
       "hours": 10,
@@ -88,29 +91,9 @@
   ],
   "chats": [
     {
-      "id": 1,
+      "id": "1",
       "message": "Hello, type anything?",
       "timestamp": 1756266747531
-    },
-    {
-      "id": "8896tc",
-      "message": "testing layout",
-      "timeStamp": 1756268255777
-    },
-    {
-      "id": "9xhbq",
-      "message": "Thank you lord",
-      "timeStamp": 1756268292515
-    },
-    {
-      "id": "c1iowt",
-      "message": "test run again",
-      "timeStamp": 1756268339818
-    },
-    {
-      "id": "u8zb7l",
-      "message": "Great is you faithfulness",
-      "timeStamp": 1756268415440
     }
   ]
 }
