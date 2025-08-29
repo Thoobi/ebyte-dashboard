@@ -5,6 +5,8 @@ import { postChat, getAllChat } from "@/services/user/chat";
 import { getChartData } from "@/services/user/chart";
 
 export interface UserStore {
+  setIsSidebarOpen: (isOpen: boolean) => void;
+  sidebarOpen: boolean;
   fetchUserDetails: () => void;
   fetchTaskProgress: () => void;
   fetchAllTask: () => void;
@@ -63,6 +65,8 @@ export interface UserStore {
 export const useUserStore = create(
   (set): UserStore => ({
     user: null,
+    setIsSidebarOpen: (isOpen: boolean) => set({ sidebarOpen: isOpen }),
+    sidebarOpen: false,
     taskProgress: null,
     tasks: null,
     successMessage: "",

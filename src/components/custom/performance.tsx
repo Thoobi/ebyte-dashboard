@@ -10,12 +10,12 @@ export default function Performance() {
   return (
     <section className="w-full pt-8 pb-5 flex flex-col gap-5">
       <div className="w-full flex justify-between items-center">
-        <h2 className="text-lg font-semibold">Performance</h2>
-        <button className="py-1 px-2 border rounded-full text-xs text-gray-500 hover:cursor-pointer flex items-center gap-1">
-          <span>
+        <h2 className="text-lg max-md:text-base font-semibold">Performance</h2>
+        <button className="py-1 px-2 border rounded-full text-xs  text-gray-500 hover:cursor-pointer flex items-center gap-1">
+          <span className="max-md:text[8px]">
             {date.day}-{date.month}
           </span>{" "}
-          <span className="flex items-center gap-1">
+          <span className="flex items-center gap-1 max-md:text[8px]">
             {date.monthChar}
             <IoIosArrowDown className="text-xs" />
           </span>

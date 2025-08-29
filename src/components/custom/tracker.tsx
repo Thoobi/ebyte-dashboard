@@ -51,26 +51,34 @@ export default function Tracker() {
   }));
 
   return (
-    <div className="border-y py-5">
-      <div className="flex flex-row justify-between">
+    <div className="border-y max-md:bg-gray-50/50 max-md:border-none max-md:p-2 max-md:rounded-lg py-5">
+      <div className="flex flex-row max-md:grid max-md:grid-cols-2 max-md:gap-3 justify-between">
         {data?.map((data, index) => (
           <div
             key={index}
-            className="flex flex-rol items-center gap-4 nth-[2]:border-x nth-[2]:px-8"
+            className="flex flex-row items-center gap-4 max-md:gap-1.5 nth-[2]:border-x max-md:nth-[2]:border-x-0 nth-[2]:px-8 max-md:nth-[2]:p-2 max-md:rounded-lg max-md:bg-white max-md:p-2"
           >
             <span className="bg-gray-50 p-2 rounded-full">
-              <data.icon className="text-2xl text-gray-500" />
+              <data.icon className="text-2xl max-md:text-lg text-gray-500" />
             </span>
-            <div className="flex flex-col gap-2 items-start justify-center">
-              <span className="text-sm font-normal">{data.label}</span>
+            <div className="flex flex-col gap-2 max-md:gap-1 items-start justify-center">
+              <span className="text-sm font-normal max-md:text-xs">
+                {data.label}
+              </span>
               <div className="flex items-center gap-2">
-                <span className="text-lg font-semibold">{data.value}</span>
-                <div className="flex items-center gap-1">
+                <span className="text-lg font-semibold max-md:text-sm">
+                  {data.value}
+                </span>
+                <div className="flex items-center gap-1 max-md:gap-0.5">
                   <FaCaretDown
-                    className={`text-sm ${handleIconPosition(data)}`}
+                    className={`text-sm max-md:text-xs ${handleIconPosition(
+                      data
+                    )}`}
                   />
                   <span
-                    className={`text-sm font-semibold ${handleTextColor(data)}`}
+                    className={`text-sm max-md:text-xs max-md:font-normal font-semibold ${handleTextColor(
+                      data
+                    )}`}
                   >
                     {data.count}
                     {data.label === "Finished" && " tasks"}

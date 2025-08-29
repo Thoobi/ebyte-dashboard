@@ -50,20 +50,20 @@ const sideLinks = [
   },
 ];
 
-export default function AppSidebar() {
+export default function MobileSidebar() {
   const location = useLocation();
   const [activePath, setActivePath] = useState(location.pathname);
   return (
     <div
-      className={`flex flex-col gap-20 pt-14 pb-10 px-8 max-md:px-1 w-[450px] max-md:w-[100px] min-h-full relative max-md:hidden`}
+      className={`flex flex-col gap-10 pt-10 pb-8 px-4 lg:hidden min-h-full relative `}
     >
-      <div>Logo</div>
+      <div className="font-bold">Logo</div>
       <ul className="flex flex-col gap-4 justify-center max-md:w-full max-md:justify-center max-md:items-center">
         {sideLinks.map((item) => (
           <li key={item.label}>
             <Link
               to={item.path}
-              className={`flex items-center gap-2 py-1 ${
+              className={`flex flex-col items-center gap-2 py-1 ${
                 activePath === item.path
                   ? "text-gray-800 font-semibold"
                   : "text-gray-400"
@@ -73,8 +73,8 @@ export default function AppSidebar() {
               <span className="text-base">
                 <item.add className="text-lg" />
               </span>
-              <div className={`flex justify-between w-full max-md:hidden`}>
-                <span className="text-sm">{item.label}</span>
+              <div className={`flex justify-between w-full`}>
+                <span className="text-xs font-light">{item.label}</span>
                 {item.plus && (
                   <span className="bg-gray-50 p-1 rounded-full max-md:hidden">
                     <item.plus className="h-3 w-3 text-black/90" />
@@ -97,16 +97,16 @@ export default function AppSidebar() {
         </button>
       </div>
 
-      <ul className="flex flex-col gap-4 justify-center absolute max-md:w-full  max-md:items-center bottom-10 max-md:left-0">
+      <ul className="flex flex-col gap-4 justify-center absolute max-md:w-full  max-md:items-center bottom-5 max-md:left-0">
         {data.map((item) => (
           <li
             key={item.label}
-            className="flex items-center gap-2 max-md:gap-0 py-1 text-gray-400"
+            className="flex flex-col items-center gap-0 py-1 text-gray-400"
           >
             <span className="text-base">
               <item.icon className="text-lg" />
             </span>
-            <span className="text-sm max-md:hidden">{item.label}</span>
+            <span className="text-[10px] text-center">{item.label}</span>
           </li>
         ))}
       </ul>

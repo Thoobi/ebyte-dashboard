@@ -55,9 +55,11 @@ export default function CurrentTask() {
     <section className="">
       <div className="flex flex-row justify-between items-center w-full py-4">
         <div className="flex flex-row justify-between items-center">
-          <h2 className="text-lg font-semibold">Current Tasks</h2>
+          <h2 className="text-lg max-md:text-base font-semibold">
+            Current Tasks
+          </h2>
           <span className="h-4 border-r mx-5"></span>
-          <span className="text-sm font-medium">Done 30%</span>
+          <span className="text-sm font-medium max-md:text-xs">Done 30%</span>
         </div>
         <button className="flex items-center rounded-full border py-1.5 px-3 gap-2.5 text-sm cursor-pointer">
           Week <BsChevronDown />
