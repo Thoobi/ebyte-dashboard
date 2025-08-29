@@ -52,7 +52,7 @@ export default function CurrentTask() {
   };
 
   return (
-    <section className="py-10">
+    <section className="">
       <div className="flex flex-row justify-between items-center w-full py-4">
         <div className="flex flex-row justify-between items-center">
           <h2 className="text-lg font-semibold">Current Tasks</h2>

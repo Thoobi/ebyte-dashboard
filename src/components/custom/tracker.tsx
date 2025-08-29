@@ -62,7 +62,7 @@ export default function Tracker() {
               <data.icon className="text-2xl text-gray-500" />
             </span>
             <div className="flex flex-col gap-2 items-start justify-center">
-              <span className="text-sm font-medium">{data.label}</span>
+              <span className="text-sm font-normal">{data.label}</span>
               <div className="flex items-center gap-2">
                 <span className="text-lg font-semibold">{data.value}</span>
                 <div className="flex items-center gap-1">

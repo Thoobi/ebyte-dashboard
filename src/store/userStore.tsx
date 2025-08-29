@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { getUserDetails } from "@/services/user/user";
 import { fetchTaskProgress, getUserTasks } from "@/services/user/task";
 import { postChat, getAllChat } from "@/services/user/chat";
+import { getChartData } from "@/services/user/chart";
 
 export interface UserStore {
   fetchUserDetails: () => void;
@@ -9,6 +10,7 @@ export interface UserStore {
   fetchAllTask: () => void;
   postChatMessage: (message: string) => Promise<void>;
   fetchAllChats: () => void;
+  getChartData: () => void;
   user: null | {
     firstName: string;
     lastName: string;
@@ -48,6 +50,14 @@ export interface UserStore {
       timestamp: number;
     }
   ];
+  chartData: [
+    {
+      "this-month": number[];
+    },
+    {
+      "last-month": number[];
+    }
+  ];
 }
 
 export const useUserStore = create(
@@ -62,6 +72,14 @@ export const useUserStore = create(
         id: "",
         message: "",
         timestamp: 0,
+      },
+    ],
+    chartData: [
+      {
+        "this-month": [],
+      },
+      {
+        "last-month": [],
       },
     ],
     setChatMessage: (message: string) => set({ chatMessage: message }),
@@ -86,6 +104,10 @@ export const useUserStore = create(
     fetchAllChats: async () => {
       const allChats = await getAllChat();
       set({ chatData: allChats });
+    },
+    getChartData: async () => {
+      const chart_data = await getChartData();
+      set({ chartData: chart_data });
     },
   })
 );
